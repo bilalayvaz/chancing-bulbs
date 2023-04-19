@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="bulbs">
+    <div
+      *ngFor="let bulb of bulbs"
+      [ngClass]="bulb.isOpen === false ? 'gray' : 'green'"
+    >
+      <div>{{ bulb.id }}</div>
+    </div>
+  </div>
+  <div>
+    <button type="button" [disabled]="passIsOver" (click)="changeBulbs()">
+      {{ passIsOver ? "Pass is over!" : "Pass" }}
+    </button>
+  </div>
+  <div class="pass-counter">Pass number: {{ counter }}</div>
+  <div *ngIf="passIsOver">
+    <h4>There are {{ greenBulbs.length }} green bulbs. These are:</h4>
+    <li *ngFor="let greenNumber of greenBulbs">
+      {{ greenNumber }}
+    </li>
+  </div>
+</div>

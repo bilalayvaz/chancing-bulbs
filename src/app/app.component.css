@@ -1,0 +1,62 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container button {
+  height: 3rem;
+  width: 7rem;
+  background-color: darksalmon;
+  color: white;
+  border-style: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 5rem;
+}
+.container button:disabled {
+  background-color: darkgrey;
+}
+
+.bulbs {
+  margin-top: 5px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.green {
+  height: 50px;
+  width: 50px;
+  background-color: green;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 2rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.gray {
+  height: 50px;
+  width: 50px;
+  background-color: gray;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 2rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.pass-counter {
+  margin-top: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
