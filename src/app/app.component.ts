@@ -21,12 +21,8 @@ export class AppComponent implements OnInit {
   changeBulbs() {
     this.counter++;
 
-    for (let i = 0; i < 100; i++) {
-      if (this.bulbs[i].id % this.counter === 0) {
-        this.bulbs[i] = { id: i + 1, isOpen: !this.bulbs[i].isOpen };
-      } else {
-        this.bulbs[i] = { id: i + 1, isOpen: this.bulbs[i].isOpen };
-      }
+    for (let i = this.counter - 1; i < 100; i += this.counter) {
+      this.bulbs[i].isOpen = !this.bulbs[i].isOpen;
     }
 
     if (this.counter === 100) {
