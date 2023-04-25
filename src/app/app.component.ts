@@ -32,12 +32,9 @@ export class AppComponent implements OnInit {
   }
 
   openedBulbs() {
-    /* this.greenBulbs = this.bulbs
+    /*  this.greenBulbs = this.bulbs
       .map((bulb, index) => {
-        if (bulb) {
-          return index + 1;
-        }
-        return 0;
+        return bulb ? index + 1 : 0;
       })
       .filter((bulb) => bulb !== 0); */
 
