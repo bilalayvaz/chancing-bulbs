@@ -10,11 +10,11 @@ export class AppComponent implements OnInit {
   counter: number = 0;
   passIsOver: boolean = false;
   greenBulbs: number[] = [];
-  bulbs: Array<{ id: number; isOpen: boolean }> = [];
+  bulbs: boolean[] = [];
 
   ngOnInit() {
     for (let i = 0; i < 100; i++) {
-      this.bulbs.push({ id: i + 1, isOpen: false });
+      this.bulbs.push(false);
     }
   }
 
@@ -22,17 +22,27 @@ export class AppComponent implements OnInit {
     this.counter++;
 
     for (let i = this.counter - 1; i < 100; i += this.counter) {
-      this.bulbs[i].isOpen = !this.bulbs[i].isOpen;
+      this.bulbs[i] = !this.bulbs[i];
     }
 
     if (this.counter === 100) {
       this.passIsOver = true;
-
-      for (let i = 0; i < 100; i++) {
-        if (this.bulbs[i].isOpen === true) {
-          this.greenBulbs.push(this.bulbs[i].id);
-        }
-      }
+      this.openedBulbs();
     }
+  }
+
+  openedBulbs() {
+    /* this.greenBulbs = this.bulbs
+      .map((bulb, index) => {
+        if (bulb) {
+          return index + 1;
+        }
+        return 0;
+      })
+      .filter((bulb) => bulb !== 0); */
+
+    this.greenBulbs = this.bulbs.flatMap((bulb, index) => {
+      return bulb ? [index + 1] : [];
+    });
   }
 }
