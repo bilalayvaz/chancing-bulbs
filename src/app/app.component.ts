@@ -9,7 +9,6 @@ export class AppComponent implements OnInit {
   title = 'chancing-bulbs';
   counter: number = 0;
   passIsOver: boolean = false;
-  greenBulbs: number[] = [];
   bulbs: boolean[] = [];
 
   ngOnInit() {
@@ -27,19 +26,10 @@ export class AppComponent implements OnInit {
 
     if (this.counter === 100) {
       this.passIsOver = true;
-      this.openedBulbs();
     }
   }
 
-  openedBulbs() {
-    /*  this.greenBulbs = this.bulbs
-      .map((bulb, index) => {
-        return bulb ? index + 1 : 0;
-      })
-      .filter((bulb) => bulb !== 0); */
-
-    this.greenBulbs = this.bulbs.flatMap((bulb, index) => {
-      return bulb ? [index + 1] : [];
-    });
+  getTotalOpenedBulbs() {
+    return this.bulbs.filter((bulb) => bulb === true).length;
   }
 }

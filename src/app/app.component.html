@@ -14,9 +14,9 @@
   </div>
   <div class="pass-counter">Pass number: {{ counter }}</div>
   <div *ngIf="passIsOver">
-    <h4>There are {{ greenBulbs.length }} green bulbs. These are:</h4>
-    <li *ngFor="let greenBulb of greenBulbs; let i = index">
-      {{ greenBulb }}
-    </li>
+    <h4>There are {{ getTotalOpenedBulbs() }} green bulbs. These are:</h4>
+    <ng-container *ngFor="let bulb of bulbs; let i = index">
+      <li *ngIf="bulb">{{ i + 1 }}</li>
+    </ng-container>
   </div>
 </div>
