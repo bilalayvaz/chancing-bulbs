@@ -10,6 +10,7 @@ export class AppComponent implements OnInit {
   counter: number = 0;
   passIsOver: boolean = false;
   bulbs: boolean[] = [];
+  openedBulbs: number[] = [];
 
   ngOnInit() {
     for (let i = 0; i < 100; i++) {
@@ -24,12 +25,12 @@ export class AppComponent implements OnInit {
       this.bulbs[i] = !this.bulbs[i];
     }
 
+    if (this.bulbs[this.counter - 1] === true) {
+      this.openedBulbs.push(this.counter);
+    }
+
     if (this.counter === 100) {
       this.passIsOver = true;
     }
-  }
-
-  getTotalOpenedBulbs() {
-    return this.bulbs.filter((bulb) => bulb === true).length;
   }
 }
